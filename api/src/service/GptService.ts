@@ -3,14 +3,14 @@ import ConversationDto from 'src/dto/ConversationDto';
 import GptResponseDto from 'src/dto/GptResponseDto';
 import InsertMessageRequestDto from 'src/dto/InsertMessageRequestDto';
 import MessageDto from 'src/dto/MessageDto';
-import DeliveryChatAgent from 'src/gpt/DeliveryChatAgent';
+import ChatAgent from 'src/gpt/ChatAgent';
 import ImageAgent from 'src/gpt/ImageAgent';
 import MessageRepository from 'src/repository/MessageRepository';
 
 @Injectable()
 export default class GptService {
   constructor(
-    private readonly deliveryChatAgent: DeliveryChatAgent,
+    private readonly chatAgent: ChatAgent,
     private readonly messageRepository: MessageRepository,
     private readonly imageAgent: ImageAgent,
   ) {}
@@ -39,8 +39,7 @@ export default class GptService {
       conversationMessages,
     );
 
-    const response =
-      await this.deliveryChatAgent.createCompletion(conversation);
+    const response = await this.chatAgent.createCompletion(conversation);
 
     await this.messageRepository.insertMessage({
       content: response,

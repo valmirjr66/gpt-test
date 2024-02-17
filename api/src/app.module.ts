@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import BlobManager from './blob/BlobManager';
 import GptController from './controller/GptController';
-import ChatAgent from './gpt/DeliveryChatAgent';
+import ChatAgent from './gpt/ChatAgent';
 import ImageAgent from './gpt/ImageAgent';
 import MessageRepository from './repository/MessageRepository';
 import GptService from './service/GptService';
