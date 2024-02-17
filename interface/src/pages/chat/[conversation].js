@@ -11,6 +11,7 @@ export default function Home() {
   const API_ADDRESS = 'http://localhost:4000/api/gpt/chat';
 
   const [messages, setMessages] = useState([]);
+  const [waitingAnswer, setWaitingAnswer] = useState(false);
 
   const fetchMessages = async () => {
     try {
@@ -35,6 +36,8 @@ export default function Home() {
       conversationId
     }]);
 
+    setWaitingAnswer(true);
+
     await axios.post(`${API_ADDRESS}/message`,
       {
         role: "user",
@@ -42,13 +45,15 @@ export default function Home() {
         conversationId
       });
 
+    setWaitingAnswer(false);
+
     fetchMessages();
   }
 
   return (
     <main className={styles.app}>
       <div className={styles.appContent}>
-        <Messages messages={messages} />
+        <Messages messages={messages} waitingAnswer={waitingAnswer} />
         <Input onSendMessage={onSendMessage} />
       </div>
     </main>

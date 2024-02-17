@@ -1,5 +1,5 @@
 import styles from '@/styles/Home.module.css';
-import { useRef } from 'react';
+import Markdown from 'react-markdown';
 
 const members = {
   me: {
@@ -18,10 +18,13 @@ const members = {
   }
 };
 
-export default function Messages({ messages }) {
+export default function Messages({ messages, waitingAnswer }) {
+  const LoadingDots = () => <img src='/dots.gif' width={50} />
+
   return (
     <ul className={styles.messagesList}>
       {messages.map(message => Message(message))}
+      {waitingAnswer && Message({ role: 'assistant', content: <LoadingDots />, id: 'loading_msg' })}
     </ul>
   );
 }
@@ -42,7 +45,12 @@ function Message({ role, content, id }) {
         <div className={styles.username}>
           {member.clientData.username}
         </div>
-        <div className={styles.text}>{content.split('\n').map(item => <div>{item}</div>)}</div>
+        <div className={styles.text}>
+          {
+            typeof content === 'string' ?
+              <Markdown>{content}</Markdown> : content
+          }
+        </div>
       </div>
     </li>
   );
