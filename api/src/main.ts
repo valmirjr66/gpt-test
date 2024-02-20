@@ -13,8 +13,8 @@ async function bootstrap() {
   app.setGlobalPrefix('api').useGlobalPipes(new ValidationPipe());
 
   const config = new DocumentBuilder()
-    .setTitle('Template NestJS API')
-    .setDescription('This is an RESTful API template based on NestJS')
+    .setTitle('GPT API Example')
+    .setDescription('This is a GPT API based on NestJS')
     .setVersion('1.0')
     .addTag('GPT')
     .build();
