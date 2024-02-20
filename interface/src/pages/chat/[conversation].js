@@ -28,6 +28,11 @@ export default function Home() {
     }
   }, [conversationId]);
 
+  useEffect(() => {
+    const element = document.getElementById("anchor");
+    element?.scrollIntoView({ behavior: "smooth" });
+  }, [messages])
+
   const onSendMessage = async (message) => {
     setMessages(prevState => [...prevState, {
       id: "temp_id",
