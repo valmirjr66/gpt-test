@@ -39,6 +39,7 @@ const SPANISH_COURSE = `
     - Após fechar o pedido entraremos em contato em até 1 dia útil
     - Os livros físicos enviados são escritos em espanhol
     - Todos os professores são graduados em licenciatura com habilitação em espanhol
+    - Nossa metodologia é baseada na teoria educativa de Paulo Freire e Vigotski
 `;
 
 export { SPANISH_COURSE };
