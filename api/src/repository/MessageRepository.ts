@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import BaseRepository from './BaseRepository';
-import InsertMessageRequestDto from 'src/dto/InsertMessageRequestDto';
-import MessageModel from 'src/model/MessageModel';
+import InsertMessageResponseModel from 'src/model/InsertMessageResponseModel';
+import InsertMessageRequestModel from 'src/model/InsertMessageRequestModel';
 
 @Injectable()
 export default class MessageRepository extends BaseRepository {
@@ -9,19 +9,21 @@ export default class MessageRepository extends BaseRepository {
     super();
   }
 
-  async getMessageById(id: string): Promise<MessageModel> {
+  async getMessageById(id: string): Promise<InsertMessageResponseModel> {
     return await this.prisma.message.findUnique({ where: { id: id } });
   }
 
   async getMessagesByConversation(
     conversationId: string,
-  ): Promise<MessageModel[]> {
+  ): Promise<InsertMessageResponseModel[]> {
     return await this.prisma.message.findMany({
       where: { conversationId: conversationId },
     });
   }
 
-  async insertMessage(message: InsertMessageRequestDto): Promise<MessageModel> {
+  async insertMessage(
+    message: InsertMessageRequestModel,
+  ): Promise<InsertMessageResponseModel> {
     return await this.prisma.message.create({ data: message });
   }
 }

@@ -1,12 +1,8 @@
-type Roles = 'system' | 'user' | 'assistant';
-
 export default class InsertMessageRequestDto {
-  role: Roles;
   content: string;
   conversationId: string;
 
-  constructor(role: Roles, content: string, conversationId: string) {
-    this.role = role;
+  constructor(content: string, conversationId: string) {
     this.content = content;
     this.conversationId = conversationId;
   }

@@ -1,6 +1,6 @@
 type Roles = 'system' | 'user' | 'assistant';
 
-export default class MessageModel {
+export default class InsertMessageResponseModel {
   id: string;
   content: string;
   role: Roles;

@@ -6,6 +6,7 @@ import InsertMessageRequestDto from 'src/dto/InsertMessageRequestDto';
 import MessageDto from 'src/dto/MessageDto';
 import ChatAgent from 'src/gpt/ChatAgent';
 import ImageAgent from 'src/gpt/ImageAgent';
+import InsertMessageRequestModel from 'src/model/InsertMessageRequestModel';
 import MessageRepository from 'src/repository/MessageRepository';
 
 @Injectable()
@@ -33,7 +34,13 @@ export default class GptService {
         message.conversationId,
       );
 
-    const newMessage = await this.messageRepository.insertMessage(message);
+    const newMessage = await this.messageRepository.insertMessage(
+      new InsertMessageRequestModel(
+        'user',
+        message.content,
+        message.conversationId,
+      ),
+    );
 
     conversationMessages.push(newMessage);
 
