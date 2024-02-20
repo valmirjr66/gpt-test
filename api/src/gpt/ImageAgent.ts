@@ -1,10 +1,6 @@
-import { Injectable } from '@nestjs/common';
 import OpenAI from 'openai';
 
-@Injectable()
 export default class ImageAgent {
-  constructor() {}
-
   async generate(prompt: string): Promise<string> {
     const openai = new OpenAI({ apiKey: process.env.OPENAI_SECRET_KEY });
 

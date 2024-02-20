@@ -1,6 +1,11 @@
 type Roles = 'system' | 'user' | 'assistant';
 
 export default class MessageModel {
+  id: string;
+  content: string;
+  role: Roles;
+  conversationId: string;
+
   constructor(
     id: string,
     content: string,
@@ -12,9 +17,4 @@ export default class MessageModel {
     this.role = role;
     this.conversationId = conversationId;
   }
-
-  id: string;
-  content: string;
-  role: Roles;
-  conversationId: string;
 }
