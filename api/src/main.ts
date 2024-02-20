@@ -16,7 +16,6 @@ async function bootstrap() {
     .setTitle('Template NestJS API')
     .setDescription('This is an RESTful API template based on NestJS')
     .setVersion('1.0')
-    .addTag('Text')
     .addTag('GPT')
     .build();
 
