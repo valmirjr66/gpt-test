@@ -1,4 +1,5 @@
 import { Injectable } from '@nestjs/common';
+import { SPANISH_COURSE } from 'src/constants/GptSetup';
 import ConversationDto from 'src/dto/ConversationDto';
 import GptResponseDto from 'src/dto/GptResponseDto';
 import InsertMessageRequestDto from 'src/dto/InsertMessageRequestDto';
@@ -9,11 +10,13 @@ import MessageRepository from 'src/repository/MessageRepository';
 
 @Injectable()
 export default class GptService {
-  constructor(
-    private readonly chatAgent: ChatAgent,
-    private readonly messageRepository: MessageRepository,
-    private readonly imageAgent: ImageAgent,
-  ) {}
+  private readonly chatAgent: ChatAgent;
+  private readonly imageAgent: ImageAgent;
+
+  constructor(private readonly messageRepository: MessageRepository) {
+    this.chatAgent = new ChatAgent(SPANISH_COURSE);
+    this.imageAgent = new ImageAgent();
+  }
 
   async getConversationById(id: string): Promise<ConversationDto> {
     const conversationMessages: MessageDto[] =
@@ -47,17 +50,11 @@ export default class GptService {
       conversationId: message.conversationId,
     });
 
-    const dto = new GptResponseDto();
-    dto.content = response;
-
-    return dto;
+    return new GptResponseDto(response);
   }
 
   async generateImage(prompt: string): Promise<GptResponseDto> {
     const response = await this.imageAgent.generate(prompt);
-    const dto = new GptResponseDto();
-    dto.content = response;
-
-    return dto;
+    return new GptResponseDto(response);
   }
 }
