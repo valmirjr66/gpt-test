@@ -75,3 +75,8 @@
   border-top-right-radius: 0;
   color: white;
 }
+
+.emptyIcon {
+  align-self: center;
+  filter: opacity(0.2);
+}

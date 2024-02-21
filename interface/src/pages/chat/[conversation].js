@@ -58,6 +58,10 @@ export default function Home() {
   return (
     <main className={styles.app}>
       <div className={styles.appContent}>
+        {
+          messages?.length === 0 &&
+          <img src='/chat.png' width={500} className={styles.emptyIcon} />
+        }
         <Messages messages={messages} waitingAnswer={waitingAnswer} />
         <Input onSendMessage={onSendMessage} waitingAnswer={waitingAnswer} />
       </div>
