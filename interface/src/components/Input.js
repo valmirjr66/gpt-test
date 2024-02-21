@@ -1,7 +1,7 @@
 import styles from '@/styles/Home.module.css';
 import { useState } from 'react';
 
-export default function Input({ onSendMessage }) {
+export default function Input({ onSendMessage, waitingAnswer }) {
   const [text, setText] = useState('');
 
   function onChange(e) {
@@ -10,6 +10,8 @@ export default function Input({ onSendMessage }) {
   }
 
   function onSubmit(e) {
+    if (waitingAnswer) return;
+
     e.preventDefault();
     setText('');
     onSendMessage(text);
@@ -25,7 +27,7 @@ export default function Input({ onSendMessage }) {
           placeholder='Pressione ENTER para enviar'
           autoFocus
         />
-        <button>Send</button>
+        <button disabled={text?.length === 0 || waitingAnswer}>Send</button>
       </form>
     </div>
   );

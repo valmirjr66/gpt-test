@@ -41,6 +41,11 @@ button {
   cursor: pointer;
 }
 
+button:disabled{
+  cursor: unset;
+  background-color: #9292be;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }

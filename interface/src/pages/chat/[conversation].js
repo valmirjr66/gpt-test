@@ -59,7 +59,7 @@ export default function Home() {
     <main className={styles.app}>
       <div className={styles.appContent}>
         <Messages messages={messages} waitingAnswer={waitingAnswer} />
-        <Input onSendMessage={onSendMessage} />
+        <Input onSendMessage={onSendMessage} waitingAnswer={waitingAnswer} />
       </div>
     </main>
   )
