@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #30304c;
+  background-color: #5c5c7d;
 }
 
 .appContent {
@@ -14,7 +14,10 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  padding: 0 10px;
+  padding: 16px;
+  border: 2px solid rgba(211, 211, 211, 0.5);
+  border-radius: 16px;
+  background-color: #30304c;
 }
 
 .messagesList {
