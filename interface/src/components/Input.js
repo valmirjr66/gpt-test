@@ -27,7 +27,7 @@ export default function Input({ onSendMessage, waitingAnswer }) {
           placeholder='Pressione ENTER para enviar'
           autoFocus
         />
-        <button disabled={text?.length === 0 || waitingAnswer}>Send</button>
+        <button className='primary' disabled={text?.length === 0 || waitingAnswer}>Send</button>
       </form>
     </div>
   );

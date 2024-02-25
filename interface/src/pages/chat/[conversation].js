@@ -55,8 +55,13 @@ export default function Conversation() {
     fetchMessages();
   }
 
+  const newConversation = () => {
+    router.push(`/`);
+  }
+
   return (
     <main className={styles.app}>
+      <button className='secondary' onClick={newConversation}>Nova conversa</button>
       <div className={styles.appContent}>
         {
           messages?.length === 0 &&
