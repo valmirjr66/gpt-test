@@ -6,14 +6,14 @@ const members = {
     id: '1',
     clientData: {
       color: 'lightblue',
-      username: 'Chicó',
+      username: 'Eu',
     },
   },
   they: {
     id: '2',
     clientData: {
       color: 'pink',
-      username: 'João Grilo',
+      username: 'Bia',
     },
   }
 };
