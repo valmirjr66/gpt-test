@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 
-export default function Home() {
+export default function Conversation() {
   const router = useRouter();
   const conversationId = router.query.conversation;
   const API_ADDRESS = 'http://localhost:4000/api/gpt/chat';
