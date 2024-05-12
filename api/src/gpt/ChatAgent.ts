@@ -30,7 +30,7 @@ export default class ChatAgent {
 
     const completion = await openai.chat.completions.create({
       messages,
-      model: 'gpt-4-turbo-preview',
+      model: 'gpt-4-turbo',
     });
 
     return completion.choices[0].message.content;
