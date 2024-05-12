@@ -83,4 +83,10 @@ button.secondary:disabled{
 ::-webkit-scrollbar-thumb:hover {
   background: #555; 
 }
-  
+
+.Home_currentMember__wDVfO {
+  .Home_text__3B15I {
+    text-align: left !important;
+    padding-left: 16px !important;
+  }
+}
