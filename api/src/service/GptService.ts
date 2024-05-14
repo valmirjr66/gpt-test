@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { SPANISH_COURSE } from 'src/constants/GptSetup';
+import { FICTITIOUS_CUSTOMER } from 'src/constants/GptSetup';
 import ConversationDto from 'src/dto/ConversationDto';
 import GptResponseDto from 'src/dto/GptResponseDto';
 import InsertMessageRequestDto from 'src/dto/InsertMessageRequestDto';
@@ -15,7 +15,7 @@ export default class GptService {
   private readonly imageAgent: ImageAgent;
 
   constructor(private readonly messageRepository: MessageRepository) {
-    this.chatAgent = new ChatAgent(SPANISH_COURSE);
+    this.chatAgent = new ChatAgent(FICTITIOUS_CUSTOMER);
     this.imageAgent = new ImageAgent();
   }
 
